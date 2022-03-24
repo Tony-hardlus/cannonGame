@@ -21,11 +21,12 @@ targets = []
 def tap(x, y):
     """Respond to screen tap."""
     if not inside(ball):
-        ball.x = -199
-        ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        ball.x = -195 #cambio a la posición en x de pelota.
+        ball.y = -195 #cambio a la posición en y de pelota.
+        speed.x = (x + 200) / 25 #cambia a velocidad: 5/25 o 1/5
+        speed.y = (y + 200) / 25 #cambia a velocidad: 5/25 o 1/5
 
+        #Cambio en general: Se le aumento la velocidad a los objetivos y a la bala. 
 
 def inside(xy):
     """Return True if xy within screen."""
@@ -55,11 +56,13 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 0.25 #se le resto .25 de la velocidad (anterior = 0.5)
 
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.15 #se le resto .20 de la velocidad (anterior = 0.35)
         ball.move(speed)
+
+        #Cambio en general: Se le aumento la velocidad a los objetivos y a la bala. 
 
     dupe = targets.copy()
     targets.clear()
